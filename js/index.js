@@ -9,49 +9,55 @@ $(document).ready(function(){
     // 页面自定义滚动
     
     // 样式计算
-    var winH = $(window).height();
-    var headerH = $('.header').height();
-    var calendarH = $('.calendar').height();
-    var hearerInfH = $('.hearer-inf').height();
-    setTimeout(function () {
+    
+    function refreshStyle() {
+        var winH = $(window).height();
+        var headerH = $('.header').height();
+        var calendarH = $('.calendar').height();
+        var hearerInfH = $('.hearer-inf').height();
         $('.wrapper').height(winH + headerH);
         var wraaperH = $('.wrapper').height();
         $('.view-wrap .content').height(wraaperH - headerH - calendarH -hearerInfH);
         $('.content-item').css({
             'min-height': wraaperH - headerH - calendarH -hearerInfH + 'px'
         });
+        
+    }
+    setTimeout(function () {
+        refreshStyle();
     },300);
+    
     
 
     // 自定义滚动
-    // var viewScroll, siderbarScroll, contentScroll;
+    var viewScroll, siderbarScroll, contentScroll;
     
-    // viewScroll = new IScroll('.view-wrap', {
-    //     bounce: false,
-    //     click: true,
-    // });
-    // siderbarScroll = new IScroll('.siderbar', {
-    //     bounce: true,
-    //     click: true,
-    //     momentum: false
-    // });
-    // contentScroll = new IScroll('.content-body', {
-    //     bounce: true,
-    //     click: true,
-    //     momentum: false
-    // });
+    viewScroll = new IScroll('.view-wrap', {
+        bounce: false,
+        click: true,
+    });
+    siderbarScroll = new IScroll('.siderbar', {
+        bounce: true,
+        click: true,
+        momentum: false
+    });
+    contentScroll = new IScroll('.content-body', {
+        bounce: true,
+        click: true,
+        momentum: false
+    });
 
-    // setTimeout(function () {
-    //     viewScroll.refresh();
-    //     contentScroll.refresh();
-    //     siderbarScroll.refresh();
-    // },400);
+    setTimeout(function () {
+        viewScroll.refresh();
+        contentScroll.refresh();
+        siderbarScroll.refresh();
+    },400);
 
     // siderbar点击事件
     $('.siderbar li').on('tap', function () {
-        // setTimeout(function () {
-        //     contentScroll.refresh();
-        // },0);
+        setTimeout(function () {
+            contentScroll.refresh();
+        },0);
         var thisIndex = $(this).index();
         $('.siderbar li').removeClass('act');
         $(this).addClass('act');
@@ -158,9 +164,9 @@ $(document).ready(function(){
             'height': 'auto',
             'overflow': 'auto'
         });
-        // setTimeout(function () {
-        //     console.log(123);
-        //     contentScroll.refresh();
-        // },0);
+        setTimeout(function () {
+            refreshStyle();
+            contentScroll.refresh();
+        },0);
     });
 });
