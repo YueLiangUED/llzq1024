@@ -24,34 +24,34 @@ $(document).ready(function(){
     
 
     // 自定义滚动
-    var viewScroll, siderbarScroll, contentScroll;
+    // var viewScroll, siderbarScroll, contentScroll;
     
-    viewScroll = new IScroll('.view-wrap', {
-        bounce: false,
-        click: true,
-    });
-    siderbarScroll = new IScroll('.siderbar', {
-        bounce: true,
-        click: true,
-        momentum: false
-    });
-    contentScroll = new IScroll('.content-body', {
-        bounce: true,
-        click: true,
-        momentum: false
-    });
+    // viewScroll = new IScroll('.view-wrap', {
+    //     bounce: false,
+    //     click: true,
+    // });
+    // siderbarScroll = new IScroll('.siderbar', {
+    //     bounce: true,
+    //     click: true,
+    //     momentum: false
+    // });
+    // contentScroll = new IScroll('.content-body', {
+    //     bounce: true,
+    //     click: true,
+    //     momentum: false
+    // });
 
-    setTimeout(function () {
-        viewScroll.refresh();
-        contentScroll.refresh();
-        siderbarScroll.refresh();
-    },400);
+    // setTimeout(function () {
+    //     viewScroll.refresh();
+    //     contentScroll.refresh();
+    //     siderbarScroll.refresh();
+    // },400);
 
     // siderbar点击事件
     $('.siderbar li').on('tap', function () {
-        setTimeout(function () {
-            contentScroll.refresh();
-        },0);
+        // setTimeout(function () {
+        //     contentScroll.refresh();
+        // },0);
         var thisIndex = $(this).index();
         $('.siderbar li').removeClass('act');
         $(this).addClass('act');
@@ -147,4 +147,20 @@ $(document).ready(function(){
             $('.mask').hide();
         });
     })();
+
+    // 查看更多
+    $('.more-text').click(function (event) {
+        event.preventDefault();
+        var $thisItemSection = $(this).parents('.item-section');
+        var $thisItemSectionList = $thisItemSection.find('.item-section-list');
+        var $thisItemSectionListLi = $thisItemSection.find('.item-section-list li');
+        $thisItemSectionList.css({
+            'height': 'auto',
+            'overflow': 'auto'
+        });
+        // setTimeout(function () {
+        //     console.log(123);
+        //     contentScroll.refresh();
+        // },0);
+    });
 });
