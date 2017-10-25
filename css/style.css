@@ -35,10 +35,9 @@ body {
 } */
 /* 剩余流量 */
 .hearer-inf {
-    padding-top: 0.33rem;
     background-color: #fff;
     justify-content: space-around;
-    padding: 0.2rem 0;
+    padding: 0.15rem 0 0.2rem;
     text-align: center;
     box-shadow: 0 2px 5px -2px rgba(153, 153, 153, .5);
 }
