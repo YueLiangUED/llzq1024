@@ -96,7 +96,7 @@ $(document).ready(function(){
             modifier: 2,
             slideShadows : false
         },
-        autoplay: 1000
+        autoplay: 2000
       });
       
     //   弹窗
