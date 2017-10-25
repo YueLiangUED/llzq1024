@@ -194,7 +194,7 @@ $(document).ready(function(){
             var $thisItemSectionListLi = $(this).find('li');
             var $thisItemSection = $(this).parents('.item-section');
             if ($thisItemSectionListLi.length < 4 || $thisItemSectionListLi.length == 4) {
-                var $moreText = $thisItemSection.find('.more-text');
+                var $moreText = $thisItemSection.find('.more-show');
                 $moreText.hide();
             }
         });
