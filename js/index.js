@@ -155,16 +155,33 @@ $(document).ready(function(){
     })();
 
     // 查看更多
-    $('.more-text').click(function (event) {
+    $('.more-show').on('click', function (event) {
         event.preventDefault();
         var $thisItemSection = $(this).parents('.item-section');
         var $thisItemSectionList = $thisItemSection.find('.item-section-list');
-        var $thisItemSectionListLi = $thisItemSection.find('.item-section-list li');
+        var $moreHide = $thisItemSection.find('.more-hide');
         $thisItemSectionList.css({
             'height': 'auto',
             'overflow': 'auto'
         });
         $(this).hide();
+        $moreHide.show();
+        setTimeout(function () {
+            contentScroll.refresh();
+        },0);
+    });
+
+    $('.more-hide').on('click',function (event) {
+        event.preventDefault();
+        var $thisItemSection = $(this).parents('.item-section');
+        var $thisItemSectionList = $thisItemSection.find('.item-section-list');
+        var $moreShow = $thisItemSection.find('.more-show');
+        $thisItemSectionList.css({
+            'height': '3.45rem',
+            'overflow': 'hidden'
+        });
+        $(this).hide();
+        $moreShow.show();
         setTimeout(function () {
             contentScroll.refresh();
         },0);
