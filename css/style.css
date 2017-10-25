@@ -205,7 +205,9 @@ body {
 .item-section-list-na {
     flex-wrap: wrap;
     justify-content: space-between;
-    height: 3.5rem;
+}
+.item-section-list {
+    height: 3.56rem;
     overflow: hidden;
 }
 .item-section-list li,

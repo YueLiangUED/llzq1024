@@ -21,7 +21,6 @@ $(document).ready(function(){
         $('.content-item').css({
             'min-height': wraaperH - headerH - calendarH -hearerInfH + 'px'
         });
-        
     }
     setTimeout(function () {
         refreshStyle();
@@ -55,6 +54,7 @@ $(document).ready(function(){
 
     // siderbar点击事件
     $('.siderbar li').on('tap', function () {
+        
         setTimeout(function () {
             contentScroll.refresh();
         },0);
@@ -96,7 +96,7 @@ $(document).ready(function(){
             modifier: 2,
             slideShadows : false
         },
-        autoplay: 2500
+        autoplay: 1000
       });
       
     //   弹窗
@@ -164,9 +164,22 @@ $(document).ready(function(){
             'height': 'auto',
             'overflow': 'auto'
         });
+        $(this).hide();
         setTimeout(function () {
-            refreshStyle();
             contentScroll.refresh();
         },0);
     });
+
+    // 判断套餐包是否大于四个否则就隐藏查看更多
+    (function () {
+        var $itemSectionList = $('.item-section-list');
+        $itemSectionList.each(function () {
+            var $thisItemSectionListLi = $(this).find('li');
+            var $thisItemSection = $(this).parents('.item-section');
+            if ($thisItemSectionListLi.length < 4 || $thisItemSectionListLi.length == 4) {
+                var $moreText = $thisItemSection.find('.more-text');
+                $moreText.hide();
+            }
+        });
+    })();
 });
